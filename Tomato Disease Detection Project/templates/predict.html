@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Plant Disease Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+  </head>
+<body>
+  <div class="container">
+    <h1>Plant Disease Prediction Result</h1>
+    {% if label %}
+      <p>The prediction is: {{ label }}</p>
+      <p>The accuracy = {{ accuracy }}%</p>
+    {% else %}
+      <p>Please upload an image to predict</p>
+    {% endif %}
+    {% if image_file %}
+    <img src="{{ url_for('static', filename='uploads/' + image_file) }}">
+    {% endif %}
+    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form">
+      <label for="image">Upload an image:</label><br>
+      <input type="file" name="image"><br><br>
+      <input type="submit" value="Predict">
+    </form>
+    <form method="GET" action="/">
+      <button type="submit">Back to home</button>
+    </form>
+  </div>
+</body>
+</html>

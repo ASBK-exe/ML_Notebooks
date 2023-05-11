@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Plant Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+  </head>
+  <body>
+    <h1>Plant Disease Prediction</h1>
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*">
+      <button type="submit">Predict</button>
+    </form>
+  </body>
+</html>
